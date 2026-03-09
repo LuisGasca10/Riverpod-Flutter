@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dispositivo 1",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "adb-EAQCKJYXDMCAU8M7-UC0crQ._adb-tls-connect"
+    },
+    {
+      "name": "Dispositivo 2",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "adb-HA28K3LX-PJh13W._adb-tls-connect._tcp"
+    },
+    {
+      "name": "Desktop Windows",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "windows"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Los 3 (Móviles + Desktop)",
+      "configurations": ["Dispositivo 1", "Dispositivo 2", "Desktop Windows"]
+    }
+  ]
+}
