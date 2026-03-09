@@ -5,7 +5,7 @@
       "name": "Dispositivo 1",
       "request": "launch",
       "type": "dart",
-      "deviceId": "adb-EAQCKJYXDMCAU8M7-UC0crQ._adb-tls-connect"
+      "deviceId": "adb-EAQCKJYXDMCAU8M7-UC0crQ._adb-tls-connect._tcp"
     },
     {
       "name": "Dispositivo 2",

@@ -9,20 +9,34 @@ class FutureProviderScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final futureValue = ref.watch(pokemonNameProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Future Provider'),
-      ),
-      body: Center(
-        child: futureValue.when(
-          data: (data) => Text(data),
-          error: (error, stackTrace) => Text(error.toString()),
-          loading: () => const CircularProgressIndicator(),
+        appBar: AppBar(
+          title: const Text('Future Provider'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.refresh),
-        onPressed: () {},
-      ),
-    );
+        body: Center(
+          child: futureValue.when(
+            data: (data) => Text(data),
+            error: (error, stackTrace) => Text(error.toString()),
+            loading: () => const CircularProgressIndicator(),
+          ),
+        ),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              heroTag: 'btn-1',
+              child: const Icon(Icons.refresh),
+              onPressed: () {
+                ref.read(pokemonIdProvider.notifier).increment();
+              },
+            ),
+            const SizedBox(height: 10),
+            FloatingActionButton(
+              child: const Icon(Icons.minimize_outlined),
+              onPressed: () {
+                ref.read(pokemonIdProvider.notifier).decrement();
+              },
+            ),
+          ],
+        ));
   }
 }
